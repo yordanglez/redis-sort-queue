@@ -4,15 +4,15 @@ from distutils.core import setup
 
 setup(
     name='redis-sort-queue',
-    version='0.0.2',
-    url='https://github.com/yordan.glez/redis-sort-queue',
+    version='0.0.5',
+    url='https://github.com/yordanglez/redis-sort-queue',
     description=(
         "ordered queue for redis"),
-    long_description=open('README.rst').read(),
+    # long_description=open('README.rst').read(),
     author = "Yordano Gonzalez Fernandez",
     author_email = "yorda891216@gmail.com",
     keywords="Redis, Queue, Priority, Sort",
-    license=open('LICENSE').read(),
+    # license=open('LICENSE').read(),
     platforms=['linux'],
     packages=['redis-sort-queue'],
     # include_package_data=True,
