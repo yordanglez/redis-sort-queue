@@ -3,8 +3,8 @@ from distutils.core import setup
 
 
 setup(
-    name='redis-sort-queue',
-    version='0.0.5',
+    name='redis_sort_queue',
+    version='0.0.7',
     url='https://github.com/yordanglez/redis-sort-queue',
     description=(
         "ordered queue for redis"),
@@ -14,7 +14,7 @@ setup(
     keywords="Redis, Queue, Priority, Sort",
     # license=open('LICENSE').read(),
     platforms=['linux'],
-    packages=['redis-sort-queue'],
+    packages=['redis_sort_queue'],
     # include_package_data=True,
     install_requires=[
         'redis'],
