@@ -20,15 +20,46 @@ Examples
 --------
 We have put some self-explanatory examples in the [examples](https://github.com/yordanglez/redis-sort-queue/tree/master/example) directory, but here is a quick example on how to get started. Assuming the installation was successful, you can import the redis-sort-queue package like this:
 
-```python
-from redis_sort_queue.redis_queue import RedisQueue
-```
+
 
 Then, create an instance of **RedisQueue**:
+```python
+from redis_sort_queue import RedisQueue
+```
 
 ```python
 queue = RedisQueue('name_queue')
 queue.push(100, "element1",1, "element2")
+element=queue.pop()
+```
+
+
+If you want to use multiple queues you must create an instance of **CollectionQueues** :
+```python
+from redis_sort_queue import RedisQueue, CollectionQueues
+```
+
+```python
+queue1 = RedisQueue('A')
+queue2 = RedisQueue('B')
+queue1.push(100, "E",1, "L")
+queue2.push(101, "T",datetime.now(), 10)
+collection=CollectionQueues()
+queue3= collection.intersect_queues('intersect1',['A','B'])
+element=queue.pop()
+```
+
+If you want to use pool connection **ConnectionPool** :
+```python
+from redis_sort_queue import RedisQueue, CollectionQueues, ConnectionPool
+```
+```python
+queue1 = RedisQueue('A',connection_pool=pool)
+queue2 = RedisQueue('B',connection_pool=pool)
+queue1.push(100, "E",1, "L", is_date=True)
+queue2.push(101, "T",datetime.now(), 10, is_date=True)
+collection=CollectionQueues(connection_pool=pool)
+queue3= collection.intersect_queues('intersect1',['A','B'])
 element=queue.pop()
 ```
 
