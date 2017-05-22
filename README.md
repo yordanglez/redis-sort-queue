@@ -58,7 +58,7 @@ __init__(self, key, **kwargs)**
 
 **list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=<type 'float'>)**
     Return a range of values from queue between
-    **start** and ``end`` sorted in ascending order.
+    **start** and **end** sorted in ascending order.
      
     **start** and **end** can be negative, indicating the end of the range.
      
