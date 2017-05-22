@@ -67,7 +67,7 @@ Returns the number of elements in the queue with a score between **min** and **m
 ```python
 incr_priority(self, value, amount=1)
  ```   
-    Increment the score of **value** in queue by **amount**
+Increment the score of **value** in queue by **amount**
 
 **list**
 ```python
