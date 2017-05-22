@@ -74,36 +74,36 @@ Increment the score of **value** in queue by **amount**
 list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=type float)
 ``` 
 Return a range of values from queue between
-    **start** and **end** sorted in ascending order.
-     
-    **start** and **end** can be negative, indicating the end of the range.
-     
-    **desc** a boolean indicating whether to sort the results descendingly
-     
-    **withscores** indicates to return the scores along with the values.
-    The return type is a list of (value, score) pairs
-     
-    **score_cast_func** a callable used to cast the score return value
+**start** and **end** sorted in ascending order.
+
+**start** and **end** can be negative, indicating the end of the range.
+
+**desc** a boolean indicating whether to sort the results descendingly
+
+**withscores** indicates to return the scores along with the values.
+The return type is a list of (value, score) pairs
+
+**score_cast_func** a callable used to cast the score return value
 
 **list_by_lex**
 ```python
 list_by_lex(self, min, max, start=None, num=None)
 ```    
-    Return the lexicographical range of values from sorted queue
-    between **min** and **max**.
-     
-    If **start** and **num** are specified, then return a slice of the
-    range.
+Return the lexicographical range of values from sorted queue
+between **min** and **max**.
+
+If **start** and **num** are specified, then return a slice of the
+range.
 
 **list_by_priority**
 ```python
 list_by_priority(self, min, max, start=None, num=None, withscores=False, score_cast_func=<type 'float'>)
 ```   
-   Return the lexicographical range of values from sorted queue
-    between **min** and **max**.
-     
-    If **start** and **num** are specified, then return a slice of the
-    range.
+Return the lexicographical range of values from sorted queue
+between **min** and **max**.
+
+If **start** and **num** are specified, then return a slice of the
+range.
 
 **pop**
 ```python
@@ -115,14 +115,14 @@ pop(self, desc=False)
 ```python
 push(self, *args, **kwargs)
 ```  
-    Set any number of score, element-name pairs to the queue. Pairs
-    can be specified in two ways:
-     
-    As *args, in the form of: score1, name1, score2, name2, ...
-    or as **kwargs, in the form of: name1=score1, name2=score2, ...
-     
-    The following example would add four values to the 'my-key' key:
-    redis.push( 1.1, 'name1', 2.2, 'name2', name3=3.3, name4=4.4)
+Set any number of score, element-name pairs to the queue. Pairs
+can be specified in two ways:
+
+As *args, in the form of: score1, name1, score2, name2, ...
+or as **kwargs, in the form of: name1=score1, name2=score2, ...
+
+The following example would add four values to the 'my-key' key:
+redis.push( 1.1, 'name1', 2.2, 'name2', name3=3.3, name4=4.4)
 ```
 
 **remove**
