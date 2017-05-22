@@ -28,6 +28,6 @@ Then, create an instance of **RedisQueue**:
 
 ```python
 queue = RedisQueue('name_queue')
-queue.push(100, "element1",1, "elment2")
+queue.push(100, "element1",1, "element2")
 element=queue.pop()
 ```
