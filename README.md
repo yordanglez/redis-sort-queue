@@ -74,16 +74,16 @@ Increment the score of **value** in queue by **amount**
 list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=type float)
 ``` 
 Return a range of values from queue between
-**start** and **end** sorted in ascending order.
+   **start** and **end** sorted in ascending order.
 
-**start** and **end** can be negative, indicating the end of the range.
+   **start** and **end** can be negative, indicating the end of the range.
 
-**desc** a boolean indicating whether to sort the results descendingly
+   **desc** a boolean indicating whether to sort the results descendingly
 
-**withscores** indicates to return the scores along with the values.
-The return type is a list of (value, score) pairs
+   **withscores** indicates to return the scores along with the values.
+   The return type is a list of (value, score) pairs
 
-**score_cast_func** a callable used to cast the score return value
+   **score_cast_func** a callable used to cast the score return value
 
 **list_by_lex**
 ```python
