@@ -37,14 +37,13 @@ API library
 
 Methods defined here:
 
-```python
-__init__(self, key, kwargs)
-```
+**clean**
 ```python
 clean(self)
  ```  
    Delete all values in queue
-
+   
+**count**
 ```python
 count(self)
 ```  
