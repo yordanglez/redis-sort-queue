@@ -37,26 +37,26 @@ API library
 
 Methods defined here:
 
-__init__(self, key, **kwargs)
+```__init__(self, key, **kwargs)```
 
-clean(self)
+```clean(self)```
     Delete all values in queue
 
-count(self)
+```count(self)```
     Return the number of elements in the queue
 
-count_lex(self, min, max)
+```count_lex(self, min, max)```
     Return the number of items in the queue between the
     lexicographical range ``min`` and ``max``.
 
-count_priority(self, min, max)
+```count_priority(self, min, max)```
     Returns the number of elements in the queue with
     a score between ``min`` and ``max``.
 
-incr_priority(self, value, amount=1)
+```incr_priority(self, value, amount=1)```
     Increment the score of ``value`` in queue by ``amount``
 
-list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=<type 'float'>)
+```list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=<type 'float'>)```
     Return a range of values from queue between
     ``start`` and ``end`` sorted in ascending order.
      
@@ -69,24 +69,24 @@ list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=<type 
      
     ``score_cast_func`` a callable used to cast the score return value
 
-list_by_lex(self, min, max, start=None, num=None)
+```list_by_lex(self, min, max, start=None, num=None)```
     Return the lexicographical range of values from sorted queue
     between ``min`` and ``max``.
      
     If ``start`` and ``num`` are specified, then return a slice of the
     range.
 
-list_by_priority(self, min, max, start=None, num=None, withscores=False, score_cast_func=<type 'float'>)
+```list_by_priority(self, min, max, start=None, num=None, withscores=False, score_cast_func=<type 'float'>)```
     Return the lexicographical range of values from sorted queue
     between ``min`` and ``max``.
      
     If ``start`` and ``num`` are specified, then return a slice of the
     range.
 
-pop(self, desc=False)
+```pop(self, desc=False)```
     Remove the first member ``values`` from queue ordered ``desc``
 
-push(self, *args, **kwargs)
+```push(self, *args, **kwargs)```
     Set any number of score, element-name pairs to the queue. Pairs
     can be specified in two ways:
      
@@ -96,6 +96,6 @@ push(self, *args, **kwargs)
     The following example would add four values to the 'my-key' key:
     redis.push( 1.1, 'name1', 2.2, 'name2', name3=3.3, name4=4.4)
 
-remove(self, *values)
+```remove(self, *values)```
     Remove member ``values`` from queue
 
