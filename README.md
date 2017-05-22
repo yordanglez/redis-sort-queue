@@ -56,7 +56,7 @@ __init__(self, key, **kwargs)**
 **incr_priority(self, value, amount=1)**
     Increment the score of **value** in queue by **amount**
 
-**list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=<type 'float'>)**
+**list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=type float)**
     Return a range of values from queue between
     **start** and **end** sorted in ascending order.
      
