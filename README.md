@@ -61,8 +61,7 @@ count_lex(self, min, max)
 ```python
 count_priority(self, min, max)
 ```
-    Returns the number of elements in the queue with
-    a score between **min** and **max**.
+Returns the number of elements in the queue with a score between **min** and **max**.
 
 **incr_priority**
 ```python
