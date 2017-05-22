@@ -47,18 +47,18 @@ __init__(self, key, **kwargs)**
 
 **count_lex(self, min, max)**
     Return the number of items in the queue between the
-    lexicographical range ``min`` and ``max``.
+    lexicographical range **min** and **max**.
 
 **count_priority(self, min, max)**
     Returns the number of elements in the queue with
-    a score between ``min`` and ``max``.
+    a score between **min** and **max**.
 
 **incr_priority(self, value, amount=1)**
-    Increment the score of ``value`` in queue by ``amount``
+    Increment the score of **value** in queue by **amount**
 
 **list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=<type 'float'>)**
     Return a range of values from queue between
-    ``start`` and ``end`` sorted in ascending order.
+    **start** and ``end`` sorted in ascending order.
      
     ``start`` and ``end`` can be negative, indicating the end of the range.
      
