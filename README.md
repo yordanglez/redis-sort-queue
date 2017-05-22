@@ -44,9 +44,10 @@ queue1 = RedisQueue('A')
 queue2 = RedisQueue('B')
 queue1.push(100, "E",1, "L")
 queue2.push(101, "T",datetime.now(), 10)
+```
+```python
 collection=CollectionQueues()
 queue3= collection.intersect_queues('intersect1',['A','B'])
-element=queue.pop()
 ```
 
 If you want to use pool connection **ConnectionPool** :
@@ -54,10 +55,14 @@ If you want to use pool connection **ConnectionPool** :
 from redis_sort_queue import RedisQueue, CollectionQueues, ConnectionPool
 ```
 ```python
+pool = ConnectionPool(host='127.0.0.1', port=6379)
+```
+```python
 queue1 = RedisQueue('A',connection_pool=pool)
 queue2 = RedisQueue('B',connection_pool=pool)
 queue1.push(100, "E",1, "L", is_date=True)
 queue2.push(101, "T",datetime.now(), 10, is_date=True)
+
 collection=CollectionQueues(connection_pool=pool)
 queue3= collection.intersect_queues('intersect1',['A','B'])
 element=queue.pop()
