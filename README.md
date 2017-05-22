@@ -47,7 +47,7 @@ clean(self)
 
 ```python
 count(self)
-   
+```  
    Return the number of elements in the queue
 
 ```python
