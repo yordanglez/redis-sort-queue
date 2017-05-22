@@ -3,8 +3,8 @@ from distutils.core import setup
 
 
 setup(
-    name='redis_sort_queue',
-    version='0.0.7',
+    name='redis-sort-queue',
+    version='1.0',
     url='https://github.com/yordanglez/redis-sort-queue',
     description=(
         "ordered queue for redis"),
