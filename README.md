@@ -61,7 +61,6 @@ count_lex(self, min, max)
 ```python
 count_priority(self, min, max)
 ```
-    
     Returns the number of elements in the queue with
     a score between **min** and **max**.
 
@@ -74,8 +73,7 @@ incr_priority(self, value, amount=1)
 **list**
 ```python
 list(self, start=0, end=-1, desc=False, withscores=False, score_cast_func=type float)
-```
-    
+``` 
     Return a range of values from queue between
     **start** and **end** sorted in ascending order.
      
@@ -117,8 +115,7 @@ pop(self, desc=False)
 **push**
 ```python
 push(self, *args, **kwargs)
-```
-    
+```  
     Set any number of score, element-name pairs to the queue. Pairs
     can be specified in two ways:
      
