@@ -4,38 +4,115 @@ from datetime import datetime
 
 
 class RedisQueue:
-    def __init__(self, key):
+    def __init__(self, key,**kwargs):
         self.key = key
-        self.redis = StrictRedis()
+        self.redis = StrictRedis(**kwargs)
 
     def push(self, *args, **kwargs):
+        """
+        Set any number of score, element-name pairs to the queue. Pairs
+        can be specified in two ways:
+
+        As *args, in the form of: score1, name1, score2, name2, ...
+        or as **kwargs, in the form of: name1=score1, name2=score2, ...
+
+        The following example would add four values to the 'my-key' key:
+        redis.push( 1.1, 'name1', 2.2, 'name2', name3=3.3, name4=4.4)
+        """
         if kwargs.has_key('is_date') and kwargs['is_date']:
             temp = ()
             for i, val in enumerate(args):
                 if i % 2 == 0:
                     temp += (time.mktime(args[i].timetuple()),args[i+1],)
             args=temp
-        self.redis.zadd(self.key, *args)
+        return self.redis.zadd(self.key, *args)
 
-    def pop(self):
-        range = self.redis.zrange(self.key, 0, 0)
+    def pop(self,desc=False):
+        "Remove the first member ``values`` from queue ordered ``desc``"
+        range = self.redis.zrange(self.key, 0, 0,desc)
         item = None
         if len(range):
             item = range[0]
             self.redis.zrem(self.key, item)
-
         return item
 
-    def list(self, start=0, end=-1):
-        return self.redis.zrange(self.key, start, end)
+    def remove(self,*values):
+        "Remove member ``values`` from queue"
+        return self.redis.zrem(self.key, item,*values)
+
+
+
+    def list(self, start=0, end=-1, desc=False, withscores=False,
+               score_cast_func=float):
+        """
+        Return a range of values from queue between
+        ``start`` and ``end`` sorted in ascending order.
+        
+        ``start`` and ``end`` can be negative, indicating the end of the range.
+        
+        ``desc`` a boolean indicating whether to sort the results descendingly
+        
+        ``withscores`` indicates to return the scores along with the values.
+        The return type is a list of (value, score) pairs
+        
+        ``score_cast_func`` a callable used to cast the score return value
+        """
+        return self.redis.zrange(self.key, start, end, desc,withscores,score_cast_func)
 
     def clean(self):
-        self.redis.flushall()
+        "Delete all values in queue"
+        len=self.count()
+        items= self.list()
+        for item in items:
+            self.redis.zrem(self.key, item)
+        return len
 
-#
-# queue = RedisQueue('A')
-# timestamp = time.time()
-# now = datetime.fromtimestamp(timestamp)
-# # queue.push(datetime.now(), "E",datetime.now(), "L", is_date=True)
-# list= queue.list()
-# print "goooo"
+    def count(self):
+        "Return the number of elements in the queue"
+        return self.redis.zcard(self.key)
+
+    def count_priority(self,min,max):
+        """
+        Returns the number of elements in the queue with
+        a score between ``min`` and ``max``.
+        """
+        return self.redis.zcount(self.key,min,max)
+
+    def incr_priority(self,value,amount=1):
+        "Increment the score of ``value`` in queue by ``amount``"
+        return self.redis.zincrby(self.key, value, amount)
+
+    def count_lex(self,min,max):
+        """
+        Return the number of items in the queue between the
+        lexicographical range ``min`` and ``max``.
+        """
+        return self.redis.zlexcount(self.key,min,max)
+
+
+    def list_by_lex(self,min, max, start=None, num=None):
+        """
+        Return the lexicographical range of values from sorted queue
+        between ``min`` and ``max``.
+
+        If ``start`` and ``num`` are specified, then return a slice of the
+        range.
+        """
+        return self.redis.zrangebylex(self.key,min, max, start=None, num=None)
+
+    def list_by_priority(self, min, max, start=None, num=None,
+                      withscores=False, score_cast_func=float):
+        """
+        Return the lexicographical range of values from sorted queue
+        between ``min`` and ``max``.
+
+        If ``start`` and ``num`` are specified, then return a slice of the
+        range.
+        """
+        return self.redis.zrangebyscore(self.key, min, max, start, num,
+                      withscores, score_cast_func)
+
+
+
+
+
