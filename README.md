@@ -43,11 +43,13 @@ clean(self)
  ```  
    Delete all values in queue
    
+   
 **count**
 ```python
 count(self)
 ```  
    Return the number of elements in the queue
+
 
 **count_lex**
 ```python
@@ -57,17 +59,21 @@ count_lex(self, min, max)
    Return the number of items in the queue between the
     lexicographical range **min** and **max**.
 
+
 **count_priority**
 ```python
 count_priority(self, min, max)
 ```
 Returns the number of elements in the queue with a score between **min** and **max**.
 
+
 **incr_priority**
 ```python
 incr_priority(self, value, amount=1)
  ```   
 Increment the score of **value** in queue by **amount**
+
+
 
 **list**
 ```python
@@ -85,6 +91,8 @@ Return a range of values from queue between
 
    **score_cast_func** a callable used to cast the score return value
 
+
+
 **list_by_lex**
 ```python
 list_by_lex(self, min, max, start=None, num=None)
@@ -95,6 +103,8 @@ between **min** and **max**.
 If **start** and **num** are specified, then return a slice of the
 range.
 
+
+
 **list_by_priority**
 ```python
 list_by_priority(self, min, max, start=None, num=None, withscores=False, score_cast_func=<type 'float'>)
@@ -104,6 +114,8 @@ between **min** and **max**.
 
 If **start** and **num** are specified, then return a slice of the
 range.
+
+
 
 **pop**
 ```python
@@ -123,6 +135,7 @@ or as **kwargs, in the form of: name1=score1, name2=score2, ...
 
 The following example would add four values to the 'my-key' key:
 redis.push( 1.1, 'name1', 2.2, 'name2', name3=3.3, name4=4.4)
+
 
 
 **remove**
