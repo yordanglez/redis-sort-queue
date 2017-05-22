@@ -37,9 +37,9 @@ API library
 
 Methods defined here:
 
-```__init__(self, key, **kwargs)```
+**__init__(self, key, **kwargs)**
 
-```clean(self)```
+**clean(self)**
     Delete all values in queue
 
 ```count(self)```
