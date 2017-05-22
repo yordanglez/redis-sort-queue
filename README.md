@@ -60,31 +60,31 @@ __init__(self, key, **kwargs)**
     Return a range of values from queue between
     **start** and ``end`` sorted in ascending order.
      
-    ``start`` and ``end`` can be negative, indicating the end of the range.
+    **start** and **end** can be negative, indicating the end of the range.
      
-    ``desc`` a boolean indicating whether to sort the results descendingly
+    **desc** a boolean indicating whether to sort the results descendingly
      
-    ``withscores`` indicates to return the scores along with the values.
+    **withscores** indicates to return the scores along with the values.
     The return type is a list of (value, score) pairs
      
-    ``score_cast_func`` a callable used to cast the score return value
+    **score_cast_func** a callable used to cast the score return value
 
 **list_by_lex(self, min, max, start=None, num=None)**
     Return the lexicographical range of values from sorted queue
-    between ``min`` and ``max``.
+    between **min** and **max**.
      
-    If ``start`` and ``num`` are specified, then return a slice of the
+    If **start** and **num** are specified, then return a slice of the
     range.
 
 **list_by_priority(self, min, max, start=None, num=None, withscores=False, score_cast_func=<type 'float'>)**
     Return the lexicographical range of values from sorted queue
-    between ``min`` and ``max``.
+    between **min** and **max**.
      
-    If ``start`` and ``num`` are specified, then return a slice of the
+    If **start** and **num** are specified, then return a slice of the
     range.
 
 **pop(self, desc=False)**
-    Remove the first member ``values`` from queue ordered ``desc``
+    Remove the first member **values** from queue ordered **desc**
 
 **push(self, *args, **kwargs)**
     Set any number of score, element-name pairs to the queue. Pairs
