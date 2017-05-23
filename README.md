@@ -33,6 +33,14 @@ queue.push(100, "element1",1, "element2")
 element=queue.pop()
 ```
 
+You can use **datetime** as priority :
+```python
+from redis_sort_queue import RedisQueue
+from datetime import datetime
+
+queue = RedisQueue('name_queue')
+queue.push(datetime.now(), "element1",1, "element2")
+```
 
 If you want to use multiple queues you must create an instance of **CollectionQueues** :
 ```python
