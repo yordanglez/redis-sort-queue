@@ -167,10 +167,10 @@ Set any number of score, element-name pairs to the queue. Pairs
 can be specified in two ways:
 
 As *args, in the form of: score1, name1, score2, name2, ...
-or as **kwargs, in the form of: name1=score1, name2=score2, ...
 
-The following example would add four values to the 'my-key' key:
-redis.push( 1.1, 'name1', 2.2, 'name2', name3=3.3, name4=4.4)
+
+The following example would add two values to the queue:
+redis.push( 1.1, 'name1', 2.2, 'name2')
 
 
 
