@@ -21,10 +21,11 @@ class RedisQueue:
 
         temp = ()
         for i, val in enumerate(args):
-            if i % 2 == 0 and isinstance(val,datetime):
-                temp += (time.mktime(args[i].timetuple()),args[i+1],)
-            else :
-                temp +=(args[i],args[i+1],)
+            if i % 2 == 0 :
+                if isinstance(val,datetime):
+                    temp += (time.mktime(args[i].timetuple()),args[i+1],)
+                else :
+                    temp +=(args[i],args[i+1],)
 
         args=temp
         return self.redis.zadd(self.key, *args)
