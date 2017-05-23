@@ -43,7 +43,7 @@ from redis_sort_queue import RedisQueue, CollectionQueues
 queue1 = RedisQueue('A')
 queue2 = RedisQueue('B')
 queue1.push(100, "E",1, "L")
-queue2.push(101, "T",datetime.now(), 10)
+queue2.push(101, "T")
 ```
 ```python
 collection=CollectionQueues()
