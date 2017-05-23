@@ -18,7 +18,7 @@ $ python setup.py install
 
 Examples
 --------
-We have put some self-explanatory examples in the [examples](https://github.com/yordanglez/redis-sort-queue/tree/master/example) directory, but here is a quick example on how to get started. Assuming the installation was successful, you can import the redis-sort-queue package like this:
+We have put some self-explanatory examples in the [examples](https://github.com/yordanglez/redis-sort-queue/tree/master/redis_sort_queue/example) directory, but here is a quick example on how to get started. Assuming the installation was successful, you can import the redis-sort-queue package like this:
 
 
 
