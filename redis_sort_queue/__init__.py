@@ -6,3 +6,4 @@ from redis.connection import Connection
 from redis.connection import ConnectionError
 from redis.connection import BlockingConnectionPool
 from redis.connection import AuthenticationError
+VERSION='1.2.9'
