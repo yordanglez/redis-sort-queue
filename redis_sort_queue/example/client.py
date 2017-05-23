@@ -9,8 +9,8 @@ queue2 = RedisQueue('B',connection_pool=pool)
 
 timestamp = time.time()
 now = datetime.fromtimestamp(timestamp)
-queue1.push(datetime.now(), "E",datetime.now(), "L", is_date=True)
-queue2.push(datetime.now(), "T",datetime.now(), "C", is_date=True)
+queue1.push(datetime.now(), "E",datetime.now(), "L")
+queue2.push(datetime.now(), "T",datetime.now(), "C")
 collection=CollectionQueues(connection_pool=pool)
 queue3= collection.intersect_queues('intersect1',['A','B'])
 
