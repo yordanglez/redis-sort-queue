@@ -68,8 +68,8 @@ pool = ConnectionPool(host='127.0.0.1', port=6379)
 ```python
 queue1 = RedisQueue('A',connection_pool=pool)
 queue2 = RedisQueue('B',connection_pool=pool)
-queue1.push(100, "E",1, "L", is_date=True)
-queue2.push(101, "T",datetime.now(), 10, is_date=True)
+queue1.push(100, "E",1, "L")
+queue2.push(101, "T",datetime.now(), 10)
 
 collection=CollectionQueues(connection_pool=pool)
 queue3= collection.intersect_queues('intersect1',['A','B'])
